@@ -1,0 +1,22 @@
+#board {
+	height: 770px;
+	width: 740px;
+	margin: 70px auto;
+	padding: 26px;
+	text-align: center;
+	border-radius: 30px;
+	background-color: yellow;
+}
+
+.square {
+	background-color: white;
+	border: solid 1px blue;
+	height: 100px; 
+	width: 100px;
+	display: inline-flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	border-radius: 60px;
+}
