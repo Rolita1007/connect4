@@ -2,6 +2,7 @@ class Connect4 {
   constructor(selector) {
     this.Rows = 6;
     this.Columns = 7;
+    this.player = 'red';
     this.selector = selector;
     this.createGrid();
     this.setupEventListeners();  
@@ -17,11 +18,11 @@ class Connect4 {
       for (let column = 0; column < this.Columns; column++) {
         const $column = $('<div>')
           .addClass('column empty')
-          .attr('data-row', row)
-          .attr('data-column', column);
+          .attr('data-column', column)
+          .attr('data-row', row);
         $row.append($column);
       }
-        $board.append($row);
+      $board.append($row);
     }
   }
 
@@ -45,14 +46,14 @@ class Connect4 {
       const column = $(this).data('column');
       const $lastEmptyCell = findLastEmptyCell(column);
       $lastEmptyCell.addClass(`red-chip`);
-    })
+    });
 
     $board.on('mouseleave', '.column', function () {
       $('.column').removeClass(`red-chip`);
-    })
+    });
 
-    $board.on('click', 'column.empty', function() {
-      const coloumn = $(this).data('column');
+    $board.on('click', '.column.empty', function() {
+      const column = $(this).data('column');
       const $lastEmptyCell = findLastEmptyCell(column);
       $lastEmptyCell.removeClass('empty');
       $lastEmptyCell.addClass('red');

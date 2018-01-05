@@ -7,8 +7,8 @@ body {
 }
 
 .column {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     display: inline-block;
     background-color: white;
     border-radius: 50%;
@@ -20,6 +20,14 @@ body {
 }
 
 .black-chip {
+    background-color: black;
+}
+
+.column.red {
+    background-color: red;
+}
+
+.column.black {
     background-color: black;
 }
 
