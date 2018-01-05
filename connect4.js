@@ -30,6 +30,7 @@ class Connect4 {
 
   setupEventListeners() {
     const $board = $(this.selector);
+    const that = this;
 
     function findLastEmptyCell(column) {
       const cells = $(`.column[data-column='${column}']`);
@@ -45,18 +46,19 @@ class Connect4 {
     $board.on('mouseenter', '.column.empty', function() {
       const column = $(this).data('column');
       const $lastEmptyCell = findLastEmptyCell(column);
-      $lastEmptyCell.addClass(`red-chip`);
+      $lastEmptyCell.addClass(`red-${that.player}`);
     });
 
     $board.on('mouseleave', '.column', function () {
-      $('.column').removeClass(`red-chip`);
+      $('.column').removeClass(`red-${that.player}`);
     });
 
     $board.on('click', '.column.empty', function() {
       const column = $(this).data('column');
       const $lastEmptyCell = findLastEmptyCell(column);
       $lastEmptyCell.removeClass('empty');
-      $lastEmptyCell.addClass('red');
+      $lastEmptyCell.addClass(that.player);
+      that.player = (that.player === 'red') ? 'black' : 'red';
     });
   }
 }
