@@ -44,8 +44,18 @@ class Connect4 {
     $board.on('mouseenter', '.column.empty', function() {
       const column = $(this).data('column');
       const $lastEmptyCell = findLastEmptyCell(column);
-      $lastEmptyCell.addClass('red-chip');
-      console.log(column);
+      $lastEmptyCell.addClass(`red-chip`);
     })
+
+    $board.on('mouseleave', '.column', function () {
+      $('.column').removeClass(`red-chip`);
+    })
+
+    $board.on('click', 'column.empty', function() {
+      const coloumn = $(this).data('column');
+      const $lastEmptyCell = findLastEmptyCell(column);
+      $lastEmptyCell.removeClass('empty');
+      $lastEmptyCell.addClass('red');
+    });
   }
 }
