@@ -2,7 +2,7 @@ class Connect4 {
   constructor(selector) {
     this.Rows = 6;
     this.Columns = 7;
-    this.player = 'red';
+    this.player = 'black';
     this.selector = selector;
     this.createGrid();
     this.setupEventListeners();  
@@ -55,10 +55,56 @@ class Connect4 {
 
     $board.on('click', '.column.empty', function() {
       const column = $(this).data('column');
+      const row = $(this).data('row');
       const $lastEmptyCell = findLastEmptyCell(column);
       $lastEmptyCell.removeClass('empty');
       $lastEmptyCell.addClass(that.player);
-      that.player = (that.player === 'red') ? 'black' : 'red';
+
+      const winner = that.checkForWinner(row, column);
+      if (winner) {
+        alert(`Game Over! Player ${that.player} has won!`);
+        return;
+      }
+
+      that.player = (that.player === 'black') ? 'red' : 'black';
     });
+  }
+
+  //Check for the winner
+
+  checkForWinner(row, column) {
+    const that = this;
+
+    function getCell(i, j) {
+      return $(`.column[data-row='${i}'][data-column='${j}']`);
+    }
+
+    function checkDirection(direction) {
+      let total = 0;
+      let i = row + direction.i;
+      let j = column + direction.j;
+      let $cell = $getCell(i, j);
+      while (i >= 0 && i < that.Rows && j >= 0 && j < that.Columns &&
+        $next.data('player') === that.player) {
+          total++;
+          i += step.i;
+          j += step.j;
+        }
+    }
+
+    function checkWin(directionA, directionB) {
+      const total = 1+
+        checkDirection(a) + checkDirection(b);
+      if (total >= 4) {
+        return that.player
+      } else {
+        return null;
+      }
+    }
+
+    function checkVerticals() {
+      return checkWin({i: -1, j:0}, {i: 1, j:0});
+    }
+    return checkVerticals()
   }
 }
