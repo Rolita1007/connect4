@@ -108,6 +108,14 @@ class Connect4 {
       }
     }
 
+    function checkDiagonalBottomLeftToTopRight() {
+      return checkWin({i: 1, j: -1}, {i: 1, j: 1})
+    }
+
+    function checkDiagonalTopLeftToBottomRight() {
+      return checkWin({i: 1, j: 1}, {i: -1, j: -1})
+    }
+
     function checkVerticals() {
       return checkWin({i: -1, j:0}, {i: 1, j:0});
     }
@@ -115,6 +123,9 @@ class Connect4 {
     function checkHorizontals() {
       return checkWin({i: 0, j: -1}, {i: 0, j: 1});
     }
-    return checkVerticals() || checkHorizontals()
+    return checkVerticals() || 
+           checkHorizontals() ||
+           checkDiagonalBottomLeftToTopRight() ||
+           checkDiagonalTopLeftToBottomRight()
   }
 }
