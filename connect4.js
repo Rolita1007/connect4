@@ -138,8 +138,10 @@ class Connect4 {
            checkDiagonalTopLeftToBottomRight()
   }
 
+  //restart button
+  
   restart() {
     this.createGrid();
-    that.onPlayerMove();
+    this.onPlayerMove();
   }
 }

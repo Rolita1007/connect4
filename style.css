@@ -1,33 +1,47 @@
 body {
-    text-align: center;
+  text-align: center;
 }
+
+h1 {
+  margin: 50px;
+  font-size: 150px;
+  font-family: 'Sedgwick Ave Display', cursive;
+}
+
 #connect4 {
-    background-color: yellow;
-    display: inline-block;
+  background-color: yellow;
+  display: inline-block;
 }
 
 .column {
-    width: 90px;
-    height: 90px;
-    display: inline-block;
-    background-color: white;
-    border-radius: 50%;
-    margin: 10px;
+  width: 90px;
+  height: 90px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  margin: 10px;
 }
 
 .red-chip {
-    background-color: red;
+  background-color: red;
 }
 
 .black-chip {
-    background-color: black;
+  background-color: black;
 }
 
 .column.red {
-    background-color: red;
+  background-color: red;
 }
 
 .column.black {
-    background-color: black;
+  background-color: black;
+}
+
+#restart {
+  background-color: red;
+  margin: 55px;
+  padding: 25px;
+  font-size: 15px;
 }
 
