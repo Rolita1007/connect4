@@ -9,7 +9,7 @@
 * jQuery
 
 
-### [You can play here]()
+### [You can play here](https://connect-four-us.herokuapp.com/index.html)
 
 
 <img width="677" alt="screen shot 2018-01-07 at 3 36 46 pm" src="https://user-images.githubusercontent.com/22422858/34653848-a937cdf4-f3c0-11e7-913d-ef1dba897a99.png">
