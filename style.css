@@ -4,13 +4,13 @@ body {
 
 h1 {
   margin: 5px;
-  font-size:  40px;
+  font-size:  70px;
   font-family: 'Sedgwick Ave Display', cursive;
 }
 
 h3 {
   text-align: left;
-  margin-left: 255px;
+  margin-left: 325px;
 }
 
 #connect4 {
@@ -19,11 +19,11 @@ h3 {
 }
 
 .column {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   display: inline-block;
   background-color: white;
-  border-radius: 50%;
+  border-radius: 60%;
   margin: 5px;
 }
 
@@ -46,8 +46,8 @@ h3 {
 #restart {
   background-color: blue;
   color: white;
-  margin: 25px;
+  margin: 15px;
   padding: 15px;
-  font-size: 15px;
+  font-size: 10px;
 }
 
