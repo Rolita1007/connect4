@@ -3,7 +3,7 @@ class Connect4 {
     this.Rows = 6;
     this.Columns = 7;
     this.player = 'black';
-    this.isGameOver = false;
+    this.gameOver = false;
     this.onPlayerMove = function() {};
     this.selector = selector;
     this.createGrid();
@@ -15,7 +15,7 @@ class Connect4 {
   createGrid() {
     const $board = $(this.selector);
     $board.empty();
-    this.isGameOver = false;
+    this.gameOver = false;
     this.player = 'black';
     for (let row = 0; row < this.Rows; row++) {
       const $row = $('<div>')
@@ -49,7 +49,7 @@ class Connect4 {
     }
 
     $board.on('mouseenter', '.column.empty', function() {
-      if (that.isGameOver) return;
+      if (that.gameOver) return;
       const column = $(this).data('column');
       const $lastEmptyCell = findLastEmptyCell(column);
       $lastEmptyCell.addClass(`red-${that.player}`);
@@ -60,7 +60,7 @@ class Connect4 {
     });
 
     $board.on('click', '.column.empty', function() {
-      if (that.isGameOver) return;
+      if (that.gameOver) return;
       const column = $(this).data('column');
       const row = $(this).data('row');
       const $lastEmptyCell = findLastEmptyCell(column);
@@ -73,7 +73,7 @@ class Connect4 {
         $lastEmptyCell.data('column') 
       )
       if (winner) {
-        that.isGameOver = true;
+        that.gameOver = true;
         alert(`Game Over! Player ${that.player} has won!`);
         return;
       }
